@@ -1,4 +1,4 @@
-package home.project.tgserialsserver;
+package home.project.tgserialsserver.configuration.db;
 
 import org.hibernate.boot.SchemaAutoTooling;
 import org.hibernate.cfg.AvailableSettings;
