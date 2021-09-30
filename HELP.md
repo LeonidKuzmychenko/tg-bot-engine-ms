@@ -6,4 +6,3 @@
 * [API для сериалов будет](https://kinopoiskapiunofficial.tech/documentation/api/)
 * HTTP клиент - RestTemplate
 * База данных - PostgreSQL
-

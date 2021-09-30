@@ -10,4 +10,5 @@ public class TgSerialsServerApplication {
         SpringApplication.run(TgSerialsServerApplication.class, args);
     }
 
+
 }
