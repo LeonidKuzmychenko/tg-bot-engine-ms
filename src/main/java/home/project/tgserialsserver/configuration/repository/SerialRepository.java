@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SerialRepository extends CrudRepository<Serial,Long> {
+    Serial findByName (String name);
+
+
 }
