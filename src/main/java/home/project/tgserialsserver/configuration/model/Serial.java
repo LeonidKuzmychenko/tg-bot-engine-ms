@@ -18,6 +18,7 @@ import java.util.Set;
 public class Serial {
     @Id
     private Long Id;
+    private String name;
 
     @ManyToMany(mappedBy = "serials")
     private Set<User> userSet;
