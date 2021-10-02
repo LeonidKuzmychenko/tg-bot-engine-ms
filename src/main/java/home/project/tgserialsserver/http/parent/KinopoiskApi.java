@@ -1,4 +1,4 @@
-package home.project.tgserialsserver.http;
+package home.project.tgserialsserver.http.parent;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

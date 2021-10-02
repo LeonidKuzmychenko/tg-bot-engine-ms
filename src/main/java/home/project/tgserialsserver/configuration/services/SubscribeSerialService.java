@@ -9,12 +9,21 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class SubscribeSerialService {
+
     @Autowired
-    SerialRepository serialRepository;
+    private SerialRepository serialRepository;
+
     @Autowired
-    UserRepository userRepository;
-    public void subUserToSerial(User user, Serial serial){
-    userRepository.save(user);
-    serialRepository.save(serial);
+    private UserRepository userRepository;
+
+    //create controller
+    public void subUserToSerial(User user, Serial serial) {
+        //использовать кеш из метода "findSerialByName"
+        //записать в бд подписку
+        user.getSerialList().add(serial);
+        serial.getUserSet().add(user);
+
+        userRepository.save(user);
+//        serialRepository.save(serial); TODO
     }
 }

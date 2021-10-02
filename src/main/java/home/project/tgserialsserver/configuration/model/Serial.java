@@ -17,8 +17,8 @@ import java.util.Set;
 @Table(name = "serials")
 public class Serial {
     @Id
-    private Long Id;
-    private String name;
+    private String id;
+    private String name;//remove it
 
     @ManyToMany(mappedBy = "serials")
     private Set<User> userSet;

@@ -5,13 +5,32 @@ import home.project.tgserialsserver.configuration.repository.SerialRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SerialService {
-    @Autowired
-    SerialRepository serialRepository;
 
-    public Long findNameOfSerialById(String nameSerial){
-        Serial byName = serialRepository.findByName(nameSerial);
-        return byName.getId();
+    @Autowired
+    private SerialRepository serialRepository;
+
+    //create controller
+    public void findSerialByName(String chatId, String searchName) {
+        //TODO HTTP request (@Component) only first
+        //create DTO
+        //fullname
+        //poster(http)
+
+        //надо закешировать найденный результат Cache<String(chatId),String(serialId)>
     }
+
+    //create controller
+    public List<Serial> findSubscribeSerialsByChatId(String chatId) {
+        //TODO HTTP request (@Component)
+        //create DTO
+        //fullname
+        //poster(http)
+        return null;
+    }
+
+
 }
