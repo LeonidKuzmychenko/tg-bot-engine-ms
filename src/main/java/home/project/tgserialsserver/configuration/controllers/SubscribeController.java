@@ -3,6 +3,8 @@ package home.project.tgserialsserver.configuration.controllers;
 import home.project.tgserialsserver.configuration.dto.SubscribeDto;
 import home.project.tgserialsserver.configuration.services.SubscribeSerialService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -18,10 +20,9 @@ public class SubscribeController {
     }
 
     @PostMapping
-    public void subscribe(@RequestBody SubscribeDto subscribeDto) {
-
-        //создать свою дто
-        //o->chatId
+    public ResponseEntity<Void> subscribe(@RequestBody SubscribeDto subscribeDto) {
+        subscribeSerialService.subUserToSerial(subscribeDto.getChatId());
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping

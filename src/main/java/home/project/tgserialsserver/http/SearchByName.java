@@ -22,7 +22,7 @@ public class SearchByName extends KinopoiskApi {
 
     public Film get(String text) {
         String url = UriComponentsBuilder.newInstance().scheme(scheme)
-                .host(host).path(path).queryParam("keyword", text).toString();
+                .host(host).path(path).queryParam("keyword", text).build().toString();
         ResponseEntity<SearchByNameDto> response = new RestTemplate().exchange(url, HttpMethod.GET, httpEntity, SearchByNameDto.class);//TODO создать дто
         if (response.getStatusCode() != HttpStatus.OK) {
             throw SearchByNameException.requestError();

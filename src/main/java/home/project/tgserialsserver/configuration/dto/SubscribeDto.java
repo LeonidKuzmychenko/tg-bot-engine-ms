@@ -8,5 +8,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SubscribeDto {
-    private String chatID;
+    private String chatId;
 }
