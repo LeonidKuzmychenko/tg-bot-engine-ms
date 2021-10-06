@@ -16,7 +16,6 @@ public class User {
     @Id
     @Column(name = "id")
     private String id;
-    private String name;//remove it
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_serials",
             joinColumns = @JoinColumn(name = "user_id"),

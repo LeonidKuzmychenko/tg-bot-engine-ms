@@ -18,7 +18,6 @@ import java.util.Set;
 public class Serial {
     @Id
     private String id;
-    private String name;//remove it
 
     @ManyToMany(mappedBy = "serials")
     private Set<User> userSet;

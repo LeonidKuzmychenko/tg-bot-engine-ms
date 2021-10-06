@@ -1,5 +1,6 @@
 package home.project.tgserialsserver.configuration.controllers;
 
+import home.project.tgserialsserver.configuration.dto.SubscribeDto;
 import home.project.tgserialsserver.configuration.services.SubscribeSerialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +18,8 @@ public class SubscribeController {
     }
 
     @PostMapping
-    public void subscribe(@RequestBody Object o) {
+    public void subscribe(@RequestBody SubscribeDto subscribeDto) {
+
         //создать свою дто
         //o->chatId
     }
@@ -29,5 +31,3 @@ public class SubscribeController {
     }
 }
 
-//Создать UserController (сохранить юзера)
-//Создать SerialController (сохранить сериал)
