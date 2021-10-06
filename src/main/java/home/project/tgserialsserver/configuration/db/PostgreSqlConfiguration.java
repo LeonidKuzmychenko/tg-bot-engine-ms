@@ -53,7 +53,7 @@ public class PostgreSqlConfiguration {
     @Bean(name = "mainJpaModelPaths")
     public String[] jpaModelPaths() {
         return new String[]{
-//                "com.absoft.academy.database.entities.answer.model"
+                "home.project.tgserialsserver.configuration.model"
         };
     }
 

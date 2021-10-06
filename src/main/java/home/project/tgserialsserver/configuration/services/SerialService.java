@@ -27,7 +27,6 @@ public class SerialService {
     private Cache<String ,String > cache;
     //закешировать найденный результат Cache<String(chatId),String(serialId)>
 
-
     public FoundedFilmDto findSerialByName(String chatId, String searchName) {
         Film film = searchByName.get(searchName);
         String filmId = film.getFilmId().toString();
@@ -45,6 +44,5 @@ public class SerialService {
         //poster(http)
         return null;
     }
-
 
 }

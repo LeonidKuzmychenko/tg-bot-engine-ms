@@ -19,6 +19,6 @@ public class Serial {
     @Id
     private String id;
 
-    @ManyToMany(mappedBy = "serials")
+    @ManyToMany(mappedBy = "serialList")
     private Set<User> userSet;
 }
