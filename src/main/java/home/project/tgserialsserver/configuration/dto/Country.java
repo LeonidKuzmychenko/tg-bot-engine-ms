@@ -1,6 +1,5 @@
 package home.project.tgserialsserver.configuration.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Country {
 
-    @JsonProperty("country")
+//    @JsonProperty("country")
     private String country;
 
 }

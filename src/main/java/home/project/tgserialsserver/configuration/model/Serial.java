@@ -23,17 +23,17 @@ public class Serial {
     private String id;
 
     @Setter
-    @ManyToMany(mappedBy = "serialList")
-    private Set<User> userSet;
+    @ManyToMany(mappedBy = "serials")
+    private Set<User> users;
 
     public Serial(String id) {
         this.id = id;
     }
 
-    public Set<User> getUserSet() {
-        if (userSet == null) {
-            userSet = new HashSet<>();
+    public Set<User> getUsers() {
+        if (users == null) {
+            users = new HashSet<>();
         }
-        return userSet;
+        return users;
     }
 }

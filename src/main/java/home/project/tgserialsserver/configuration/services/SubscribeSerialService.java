@@ -26,8 +26,8 @@ public class SubscribeSerialService {
         String serialId = cache.getIfPresent(chatId);
         User user = userRepository.findById(chatId).get();
         Serial serial = serialRepository.findById(serialId).orElseGet(() -> serialRepository.save(new Serial(serialId)));
-        user.getSerialList().add(serial);
-        serial.getUserSet().add(user);
+        user.getSerials().add(serial);
+        serial.getUsers().add(user);
         userRepository.save(user);
     }
 }

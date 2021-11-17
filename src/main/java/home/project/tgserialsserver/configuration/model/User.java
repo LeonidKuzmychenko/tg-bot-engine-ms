@@ -21,7 +21,7 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "serial_id")
     )
-    private Set<Serial> serialList;
+    private Set<Serial> serials;
 
     public User(String id) {
         this.id = id;
