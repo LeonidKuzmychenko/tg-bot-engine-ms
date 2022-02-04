@@ -22,7 +22,6 @@ public class GetEpisodesInfoBySerialIdRequest extends AbstractKinopoiskRequest {
         String url = urlProvider.episodesInfoBySerialId(serialId);
         ResponseEntity<GetEpisodesInfoBySerialIdResponseDto> response =
                 restTemplate.exchange(url, GET, defaultEntity(), GetEpisodesInfoBySerialIdResponseDto.class);
-        GetEpisodesInfoBySerialIdResponseDto body = response.getBody();
-        return Optional.ofNullable(body);
+        return Optional.ofNullable(response.getBody());
     }
 }

@@ -14,7 +14,7 @@ public class UserService {
         this.repository = repository;
     }
 
-    public Set<Long> foo(Long apiId) {
-        return repository.getAllUsersWhoSubscribeSerialByApiId(apiId);
+    public Set<Long> getAllUsersWhoSubscribeSerialByApiId(Long serialId) {
+        return repository.getAllUsersWhoSubscribeSerialByApiId(serialId);
     }
 }
