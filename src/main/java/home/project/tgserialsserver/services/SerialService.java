@@ -54,7 +54,7 @@ public class SerialService {
 
     private void sleep() {
         try {
-            TimeUnit.SECONDS.sleep(20);
+            TimeUnit.SECONDS.sleep(3);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

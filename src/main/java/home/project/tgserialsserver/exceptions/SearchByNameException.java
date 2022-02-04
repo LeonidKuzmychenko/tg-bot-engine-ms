@@ -1,6 +1,5 @@
 package home.project.tgserialsserver.exceptions;
 
-
 public class SearchByNameException extends RuntimeException {
     private SearchByNameException(String message) {
         super(message);

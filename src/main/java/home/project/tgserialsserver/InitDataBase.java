@@ -17,8 +17,8 @@ public class InitDataBase {
     @Autowired
     private void init(SerialRepository serialRepository, UserRepository userRepository) {
         Set<Serial> serials_ = new HashSet<>();
-        serials_.add(new Serial(178707L));
-        serials_.add(new Serial(685246L));
+        serials_.add(new Serial(404942L));
+        serials_.add(new Serial(820385L));
         serials_.add(new Serial(404900L));
         serials_.add(new Serial(195384L));
 
@@ -37,17 +37,21 @@ public class InitDataBase {
         serials1.add(serials.get(0));
         serials1.add(serials.get(1));
         serials1.add(serials.get(2));
+        serials1.add(serials.get(3));
         user1.setSerials(serials1);
 
         User user2 = users.get(1);
         Set<Serial> serials2 = new HashSet<>();
         serials2.add(serials.get(0));
         serials2.add(serials.get(1));
+        serials2.add(serials.get(2));
         user2.setSerials(serials2);
 
         User user3 = users.get(2);
         Set<Serial> serials3 = new HashSet<>();
-        serials3.add(serials.get(0));
+        serials3.add(serials.get(2));
+        serials3.add(serials.get(1));
+        serials3.add(serials.get(3));
         user3.setSerials(serials3);
 
         userRepository.saveAll(users);

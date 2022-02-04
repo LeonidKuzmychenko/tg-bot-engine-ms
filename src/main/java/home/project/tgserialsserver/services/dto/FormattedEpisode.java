@@ -5,8 +5,7 @@ import home.project.tgserialsserver.requests.getepisodesinfobyserialid.response.
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import static org.springframework.util.StringUtils.hasLength;
+import org.springframework.util.StringUtils;
 
 @Data
 @AllArgsConstructor
@@ -17,7 +16,13 @@ public class FormattedEpisode {
     private String name;
 
     public static FormattedEpisode newInstance(Episode episode) {
-        String name = hasLength(episode.getNameRu()) ? episode.getNameRu() : episode.getNameEn();
+        String name = "";
+        if (StringUtils.hasLength(episode.getNameRu())) {
+            name = episode.getNameRu();
+        }
+        if (StringUtils.hasLength(episode.getNameEn())) {
+            name = episode.getNameEn();
+        }
         FormattedEpisode formattedEpisode = new FormattedEpisode();
         formattedEpisode.setEpisodeNumber(episode.getEpisodeNumber());
         formattedEpisode.setSeasonNumber(episode.getSeasonNumber());

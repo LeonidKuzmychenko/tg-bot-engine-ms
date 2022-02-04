@@ -18,11 +18,20 @@ public class GetSerialInfoBySerialIdService {
     }
 
     public String getSerialNameBySerialId(Long serialId) {
+        System.out.println("Get name from serial " + serialId);
         Optional<GetSerialInfoBySerialIdResponseDto> oSerialInfo = getSerialInfoBySerialIdRequest.execute(serialId);
         if (oSerialInfo.isPresent()) {
             GetSerialInfoBySerialIdResponseDto serialInfo = oSerialInfo.get();
-            return hasLength(serialInfo.getNameRu()) ? serialInfo.getNameRu() : serialInfo.getNameEn();
+            if (hasLength(serialInfo.getNameRu())) {
+                return serialInfo.getNameRu();
+            }
+            if (hasLength(serialInfo.getNameEn())) {
+                return serialInfo.getNameEn();
+            }
+            if (hasLength(serialInfo.getNameOriginal())) {
+                return serialInfo.getNameOriginal();
+            }
         }
-        return "NaN";
+        return "";
     }
 }

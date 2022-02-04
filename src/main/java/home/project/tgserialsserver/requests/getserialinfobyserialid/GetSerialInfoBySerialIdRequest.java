@@ -1,5 +1,6 @@
 package home.project.tgserialsserver.requests.getserialinfobyserialid;
 
+import home.project.tgserialsserver.properties.KinopoiskProperties;
 import home.project.tgserialsserver.provider.KinopoiskUrlProvider;
 import home.project.tgserialsserver.requests.AbstractKinopoiskRequest;
 import home.project.tgserialsserver.requests.getserialinfobyserialid.response.GetSerialInfoBySerialIdResponseDto;
@@ -14,8 +15,9 @@ import static org.springframework.http.HttpMethod.GET;
 @Component
 public class GetSerialInfoBySerialIdRequest extends AbstractKinopoiskRequest {
 
-    public GetSerialInfoBySerialIdRequest(RestTemplate restTemplate, KinopoiskUrlProvider urlProvider) {
-        super(restTemplate, urlProvider);
+
+    public GetSerialInfoBySerialIdRequest(KinopoiskProperties.Headers headers, RestTemplate restTemplate, KinopoiskUrlProvider urlProvider) {
+        super(headers, restTemplate, urlProvider);
     }
 
     public Optional<GetSerialInfoBySerialIdResponseDto> execute(Long serialId) {

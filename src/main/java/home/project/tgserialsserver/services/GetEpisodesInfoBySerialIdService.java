@@ -13,8 +13,6 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static org.springframework.util.StringUtils.hasLength;
-
 @Service
 public class GetEpisodesInfoBySerialIdService {
 
@@ -42,7 +40,6 @@ public class GetEpisodesInfoBySerialIdService {
                 .map(Item::getEpisodes)
                 .flatMap(Collection::stream)
                 .filter(Objects::nonNull)
-                .filter(episode -> hasLength(episode.getNameEn()))
                 .filter(episode -> episode.getReleaseDate() != null)
                 .filter(episode -> {
                     LocalDate releaseDate = episode.getReleaseDate();

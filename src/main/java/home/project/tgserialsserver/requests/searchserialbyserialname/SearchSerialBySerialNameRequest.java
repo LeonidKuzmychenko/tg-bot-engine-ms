@@ -1,5 +1,6 @@
 package home.project.tgserialsserver.requests.searchserialbyserialname;
 
+import home.project.tgserialsserver.properties.KinopoiskProperties;
 import home.project.tgserialsserver.provider.KinopoiskUrlProvider;
 import home.project.tgserialsserver.requests.AbstractKinopoiskRequest;
 import org.springframework.stereotype.Component;
@@ -7,10 +8,13 @@ import org.springframework.web.client.RestTemplate;
 
 @Component
 public class SearchSerialBySerialNameRequest extends AbstractKinopoiskRequest {
-
-    public SearchSerialBySerialNameRequest(RestTemplate restTemplate, KinopoiskUrlProvider urlProvider) {
-        super(restTemplate, urlProvider);
+    public SearchSerialBySerialNameRequest(KinopoiskProperties.Headers headers, RestTemplate restTemplate, KinopoiskUrlProvider urlProvider) {
+        super(headers, restTemplate, urlProvider);
     }
+
+//    public SearchSerialBySerialNameRequest(RestTemplate restTemplate, KinopoiskUrlProvider urlProvider) {
+//        super(headers, restTemplate, urlProvider);
+//    }
 
 //    public Film get(String text) {
 //        String url = urlProvider.searchByText(text);
