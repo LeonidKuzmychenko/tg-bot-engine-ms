@@ -14,7 +14,10 @@ public class UserService {
         this.repository = repository;
     }
 
-    public Set<Long> getAllUsersWhoSubscribeSerialByApiId(Long serialId) {
-        return repository.getAllUsersWhoSubscribeSerialByApiId(serialId);
+    /**
+     * Взять всех пользователей, кто подписан на данный сериал
+     */
+    public Set<Long> getAllUsersWhoSubscribeSerialByApiId(Long apiId) {
+        return repository.getAllUsersWhoSubscribeSerialByApiId(apiId);
     }
 }

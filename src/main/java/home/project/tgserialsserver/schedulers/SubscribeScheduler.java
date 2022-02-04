@@ -7,8 +7,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import java.util.Set;
-
 @Slf4j
 @Component
 @EnableScheduling
@@ -25,7 +23,7 @@ public class SubscribeScheduler {
     //second, minute, hour, day, month, weekday
     @Scheduled(cron = "*/20 * * * * *")
     public void getUniqueSubscribedSerialsScheduled() {
-        Set<Long> uniqueSubscribedSerials = serialService.getUniqueSubscribedSerials();
-        log.info("UniqueSubscribedSerials: {}", uniqueSubscribedSerials);
+//        Set<Long> uniqueSubscribedSerials = serialService.getUniqueSubscribedSerials();
+//        log.info("UniqueSubscribedSerials: {}", uniqueSubscribedSerials);
     }
 }
