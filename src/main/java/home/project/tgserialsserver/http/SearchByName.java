@@ -4,26 +4,26 @@ import home.project.tgserialsserver.configuration.dto.Film;
 import home.project.tgserialsserver.configuration.dto.SearchByNameDto;
 import home.project.tgserialsserver.exceptions.SearchByNameException;
 import home.project.tgserialsserver.http.parent.KinopoiskApi;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpMethod;
+import home.project.tgserialsserver.http.parent.KinopoiskUrlProvider;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
+
+import static org.springframework.http.HttpMethod.GET;
 
 @Component
 public class SearchByName extends KinopoiskApi {
 
-    @Value("${kinopoisk-api-unofficial.search-by-text}")
-    private String path;
+    public SearchByName(RestTemplate restTemplate, KinopoiskUrlProvider urlProvider) {
+        super(restTemplate, urlProvider);
+    }
 
     public Film get(String text) {
-        String url = UriComponentsBuilder.newInstance().scheme(scheme)
-                .host(host).path(path).queryParam("keyword", text).build().toString();
-        ResponseEntity<SearchByNameDto> response = new RestTemplate().exchange(url, HttpMethod.GET, httpEntity, SearchByNameDto.class);//TODO создать дто
+        String url = urlProvider.searchByText(text);
+        ResponseEntity<SearchByNameDto> response = restTemplate.exchange(url, GET, defaultEntity(), SearchByNameDto.class);
         if (response.getStatusCode() != HttpStatus.OK) {
             throw SearchByNameException.requestError();
         }
@@ -31,13 +31,11 @@ public class SearchByName extends KinopoiskApi {
         if (searchByNameDto == null) {
             throw SearchByNameException.bodyIsNull();
         }
-
         List<Film> films = searchByNameDto.getFilms();
         if (films.isEmpty()) {
             throw SearchByNameException.filmNotFound();
         }
         return films.get(0);
-
     }
 }
 

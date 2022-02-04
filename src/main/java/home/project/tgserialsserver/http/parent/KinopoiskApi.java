@@ -1,20 +1,21 @@
 package home.project.tgserialsserver.http.parent;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.web.client.RestTemplate;
 
 public abstract class KinopoiskApi {
 
-    @Autowired
-    @Qualifier("ApiTokenEntity")
-    protected HttpEntity<Void> httpEntity;
+    protected final RestTemplate restTemplate;
+    protected final KinopoiskUrlProvider urlProvider;
 
-    @Value("${kinopoisk-api-unofficial.scheme}")
-    protected String scheme;
+    public KinopoiskApi(@Qualifier("kinopoiskRestTemplate") RestTemplate restTemplate, KinopoiskUrlProvider urlProvider) {
+        this.restTemplate = restTemplate;
+        this.urlProvider = urlProvider;
+    }
 
-    @Value("${kinopoisk-api-unofficial.host}")
-    protected String host;
-
+    protected HttpEntity<Void> defaultEntity() {
+        return new HttpEntity<>(new HttpHeaders());
+    }
 }

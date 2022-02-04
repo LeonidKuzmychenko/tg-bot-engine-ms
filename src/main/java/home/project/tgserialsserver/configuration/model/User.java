@@ -13,9 +13,14 @@ import java.util.Set;
 @Entity
 @Table(name = "users")
 public class User {
+
     @Id
-    @Column(name = "id")
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "uiId")
+    private Long uiId;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_serials",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -23,12 +28,8 @@ public class User {
     )
     private Set<Serial> serials;
 
-    public User(String id) {
-        this.id = id;
+    public User(Long uiId) {
+        this.uiId = uiId;
     }
 
-    @Override
-    public String toString() {
-        return "User{" + "id='" + id + "'}";
-    }
 }

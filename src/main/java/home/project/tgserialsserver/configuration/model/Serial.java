@@ -5,35 +5,30 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "serials")
 public class Serial {
+
     @Id
-    @Getter
-    @Setter
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @Setter
+    @Column(name = "apiId")
+    private Long apiId;
+
     @ManyToMany(mappedBy = "serials")
-    private Set<User> users;
+    private Set<User> users = new HashSet<>();
 
-    public Serial(String id) {
-        this.id = id;
+    public Serial(Long apiId) {
+        this.apiId = apiId;
     }
 
-    public Set<User> getUsers() {
-        if (users == null) {
-            users = new HashSet<>();
-        }
-        return users;
-    }
 }

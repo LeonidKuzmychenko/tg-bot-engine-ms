@@ -1,24 +1,23 @@
 package home.project.tgserialsserver.http;
 
 import home.project.tgserialsserver.http.parent.KinopoiskApi;
-import org.springframework.beans.factory.annotation.Value;
+import home.project.tgserialsserver.http.parent.KinopoiskUrlProvider;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.util.UriComponentsBuilder;
 
 @Component
 public class SerialById extends KinopoiskApi {
 
-    @Value("${kinopoisk-api-unofficial.serial-by-id}")
-    private String path;
+    public SerialById(RestTemplate restTemplate, KinopoiskUrlProvider urlProvider) {
+        super(restTemplate, urlProvider);
+    }
 
     public String get(String id) {
-        String url = UriComponentsBuilder.newInstance().scheme(scheme)
-                .host(host).path(path).buildAndExpand(id).toString();
-        ResponseEntity<String> response = new RestTemplate().exchange(url, HttpMethod.GET, httpEntity, String.class);//TODO создать дто
+        String url = urlProvider.serialById(id);
+        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, defaultEntity(), String.class);//TODO создать дто
         if (response.getStatusCode() == HttpStatus.OK) {
             return response.getBody();
         } else {
