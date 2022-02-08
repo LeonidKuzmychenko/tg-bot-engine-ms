@@ -41,10 +41,8 @@ public class GetEpisodesInfoBySerialIdService {
                 .flatMap(Collection::stream)
                 .filter(Objects::nonNull)
                 .filter(episode -> episode.getReleaseDate() != null)
-                .filter(episode -> {
-                    LocalDate releaseDate = episode.getReleaseDate();
-                    return LocalDate.now().isEqual(releaseDate);
-                })
+//                .filter(episode -> LocalDate.now().isEqual(episode.getReleaseDate()))
+                .filter(episode -> LocalDate.parse("2022-02-02").isEqual(episode.getReleaseDate()))
                 .collect(Collectors.toList());
     }
 }

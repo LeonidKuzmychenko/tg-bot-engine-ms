@@ -11,10 +11,9 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SerialsWhatReleaseToday {
+public class SerialsWhatReleaseTodayDto {
 
     private Long serialId;
     private String serialName;
     private List<Episode> releasesEpisode = new ArrayList<>();
-
 }

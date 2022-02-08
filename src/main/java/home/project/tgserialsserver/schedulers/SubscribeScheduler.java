@@ -1,6 +1,6 @@
 package home.project.tgserialsserver.schedulers;
 
-import home.project.tgserialsserver.services.PublishService;
+import home.project.tgserialsserver.services.CronService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -11,16 +11,17 @@ import org.springframework.stereotype.Component;
 @EnableScheduling
 public class SubscribeScheduler {
 
-    private final PublishService publishService;
+    private final CronService cronService;
 
-    public SubscribeScheduler(PublishService publishService) {
-        this.publishService = publishService;
+    public SubscribeScheduler(CronService cronService) {
+        this.cronService = cronService;
     }
 
-
     //second, minute, hour, day, month, weekday
-    @Scheduled(cron = "0 54 23 * * *")
+    @Scheduled(cron = "00 51 * * * *")
     public void getUniqueSubscribedSerialsScheduled() {
-        publishService.foo();
+        System.out.println("start");
+        cronService.publishAll();
+        System.out.println("end");
     }
 }
