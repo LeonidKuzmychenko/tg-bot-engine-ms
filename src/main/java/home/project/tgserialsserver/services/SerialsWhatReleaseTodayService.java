@@ -2,7 +2,7 @@ package home.project.tgserialsserver.services;
 
 import home.project.tgserialsserver.requests.getepisodesinfobyserialid.response.Episode;
 import home.project.tgserialsserver.services.dto.SerialsWhatReleaseTodayDto;
-import home.project.tgserialsserver.utils.Utils;
+import home.project.tgserialsserver.utils.Sleeper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,13 +13,13 @@ import java.util.stream.Collectors;
 @Service
 public class SerialsWhatReleaseTodayService {
 
-    private final Utils utils;
+    private final Sleeper sleeper;
     private final GetEpisodesInfoBySerialIdService episodesInfoBySerialIdService;
     private final GetSerialInfoBySerialIdService serialInfoBySerialIdService;
     private final SerialService serialService;
 
-    public SerialsWhatReleaseTodayService(Utils utils, GetEpisodesInfoBySerialIdService episodesInfoBySerialIdService, GetSerialInfoBySerialIdService serialInfoBySerialIdService, SerialService serialService) {
-        this.utils = utils;
+    public SerialsWhatReleaseTodayService(Sleeper sleeper, GetEpisodesInfoBySerialIdService episodesInfoBySerialIdService, GetSerialInfoBySerialIdService serialInfoBySerialIdService, SerialService serialService) {
+        this.sleeper = sleeper;
         this.episodesInfoBySerialIdService = episodesInfoBySerialIdService;
         this.serialInfoBySerialIdService = serialInfoBySerialIdService;
         this.serialService = serialService;
@@ -48,7 +48,7 @@ public class SerialsWhatReleaseTodayService {
             serialsWhatReleaseTodayDto = new SerialsWhatReleaseTodayDto(serialId, serialName, episodes);
         }
         //Чтобы не заспамить АПИ, делаю паузы между запросами
-        utils.sleep(50);
+        sleeper.ms(100);
         return serialsWhatReleaseTodayDto;
     }
 
