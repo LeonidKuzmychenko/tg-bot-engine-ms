@@ -48,7 +48,7 @@ public class SerialsWhatReleaseTodayService {
             serialsWhatReleaseTodayDto = new SerialsWhatReleaseTodayDto(serialId, serialName, episodes);
         }
         //Чтобы не заспамить АПИ, делаю паузы между запросами
-        utils.sleep();
+        utils.sleep(50);
         return serialsWhatReleaseTodayDto;
     }
 

@@ -11,7 +11,7 @@ import java.util.stream.Collector;
 
 public class EpisodesMessageCollector implements Collector<String, StringJoiner, String> {
 
-    private String serialName;
+    private final String serialName;
 
     public EpisodesMessageCollector(String serialName) {
         this.serialName = serialName;

@@ -18,7 +18,7 @@ public class SubscribeScheduler {
     }
 
     //second, minute, hour, day, month, weekday
-    @Scheduled(cron = "00 51 * * * *")
+    @Scheduled(cron = "00 01 * * * *")
     public void getUniqueSubscribedSerialsScheduled() {
         System.out.println("start");
         cronService.publishAll();
