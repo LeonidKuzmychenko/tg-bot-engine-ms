@@ -26,7 +26,7 @@ public class MessageDtoService {
         return serialsWhatReleaseTodayService.getSerialsWhatReleaseToday()
                 .stream()
                 .map(episodes -> {
-                    Set<Long> subscribers = userService.getAllUsersWhoSubscribeSerialByApiId(episodes.getSerialId());
+                    Set<Long> subscribers = userService.getAllWhoSubscribeSerialByApiId(episodes.getSerialId());
                     String message = messageService.getMessageFromSerialsWhatReleaseToday(episodes);
                     return new MessageDto(message, subscribers);
                 })

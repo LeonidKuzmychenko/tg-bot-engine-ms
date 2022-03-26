@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 public class DataBaseConfiguration {
 
     @Bean
-    @ConfigurationProperties("pg.data-source")
+    @ConfigurationProperties(prefix = "pg.data-source")
     public DataSource pgDataSource() {
         return DataSourceBuilder.create().build();
     }

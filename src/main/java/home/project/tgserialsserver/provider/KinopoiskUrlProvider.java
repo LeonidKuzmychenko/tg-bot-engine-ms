@@ -15,7 +15,6 @@ public class KinopoiskUrlProvider {
         this.urls = urls;
     }
 
-
     public String searchSerialBySerialName(String text) {
         return getUriComponentsBuilder()
                 .path(urls.getUrlSearchSerialBySerialName())

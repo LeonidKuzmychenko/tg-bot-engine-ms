@@ -21,13 +21,13 @@ public class Serial {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "apiId")
-    private Long apiId;
+    @Column(name = "api_id")
+    private String apiId;
 
     @ManyToMany(mappedBy = "serials")
     private Set<User> users = new HashSet<>();
 
-    public Serial(Long apiId) {
+    public Serial(String apiId) {
         this.apiId = apiId;
     }
 
