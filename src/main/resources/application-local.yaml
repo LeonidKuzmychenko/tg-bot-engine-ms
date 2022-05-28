@@ -1,0 +1,32 @@
+server:
+  port: 8095
+
+kinopoisk:
+  auth:
+    header:
+      name: X-API-KEY
+      value: ${API_TOKEN}
+  scheme: https
+  host: kinopoiskapiunofficial.tech
+  url:
+    search-serial-by-serial-name: /api/v2.1/films/search-by-keyword?keyword={keyword}
+    episodes-info-by-serial-id: /api/v2.2/films/{id}/seasons
+    serial-info-by-serial-id: /api/v2.2/films/{id}
+
+pg:
+  data-source:
+    host: localhost:5432
+    name: test-db
+    username: postgres
+    password: demo
+    driverClassName: org.postgresql.Driver
+    jdbcUrl: jdbc:postgresql://${pg.data-source.host}/${pg.data-source.name}
+
+spring:
+  jpa:
+    generate-ddl: true
+    hibernate.ddl-auto: create-drop
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+
