@@ -11,11 +11,11 @@
         <relativePath/>
     </parent>
 
-    <groupId>home.project</groupId>
-    <artifactId>tg-serials-server</artifactId>
+    <groupId>tg.project</groupId>
+    <artifactId>engine</artifactId>
     <version>0.1</version>
-    <name>tg-serials-server</name>
-    <description>tg-serials-server</description>
+    <name>tg-engine-ms</name>
+    <description>Telegram Bot микросервис с бизнес-логикой</description>
 
     <properties>
         <java.version>11</java.version>
@@ -33,16 +33,6 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>42.3.4</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
