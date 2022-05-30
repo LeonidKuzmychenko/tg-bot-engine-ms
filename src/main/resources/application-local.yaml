@@ -1,0 +1,41 @@
+server:
+  port: 8095
+
+scheduler:
+  scheme: http
+  host: localhost
+  port:
+  url:
+
+ui:
+  scheme: http
+  host: localhost
+  port:
+  url:
+
+db:
+  scheme: http
+  host: localhost
+  port: 1010
+  url:
+    users-get: /v1/users?chatId={chatId}
+    users-put: /v1/users
+    subscriptions: /v1/subscriptions
+    get-unique-subscribed-serials: /v1/serials/getUniqueSubscribedSerials
+    get-all-subscribe-serial-by-api-id: /v1/users/getAllWhoSubscribeSerialByApiId?apiId={apiId}
+
+kinopoisk:
+  scheme: http
+  host: localhost
+  port: 9090
+  url:
+    search-serial-by-serial-name: /getSerialByName?name={name}
+    episodes-info-by-serial-id: /getSerialTodayReleaseEpisodesBySerialId?serialId={serialId}
+
+spring:
+  jpa:
+    generate-ddl: true
+    hibernate.ddl-auto: create-drop
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
